@@ -1,5 +1,7 @@
+import { clsx, columnClasses, rowClasses } from "./helper/clsx"
 import { EpicStackLogo } from "./logos/epic-stack"
 import { logos } from "./logos/logos"
+
 
 export default function App() {
 	return (
@@ -14,7 +16,10 @@ export default function App() {
 			
 				<ul className="flex max-w-3xl flex-wrap justify-center gap-2 sm:gap-4 xl:grid xl:grid-flow-col xl:grid-cols-5 xl:grid-rows-6">
 					{logos.map((logo) => (
-						<li key={logo.href}>
+						<li 
+							key={logo.href}
+							className={clsx(columnClasses[logo.column], rowClasses[logo.row])}
+						>
 							<a
 								href={logo.href}
 								className="bg-highlight/[7%] grid size-20 place-items-center rounded-2xl p-4"
